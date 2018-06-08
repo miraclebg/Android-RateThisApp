@@ -2,12 +2,12 @@ apply plugin: "com.android.library"
 //apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_COMPILE_SDK_VERSION)
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
     }
@@ -31,9 +31,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    testCompile 'junit:junit:4.12'
-    testCompile "org.robolectric:robolectric:3.3.2"
+    implementation "com.android.support:appcompat-v7:$project.ANDROID_SUPPORT_LIBRARY_VERSION"
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.robolectric:robolectric:3.8"
 }
 
 
